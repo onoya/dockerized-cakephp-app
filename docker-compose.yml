@@ -7,3 +7,17 @@ services:
       - .:/var/www/html
     ports:
       - 8000:80
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: cakephp_db
+      MYSQL_ROOT_PASSWORD: root_password
+
+volumes:
+  db-data:
+    external: false
