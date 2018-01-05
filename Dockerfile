@@ -23,4 +23,7 @@ RUN service apache2 restart
 ADD https://getcomposer.org/download/1.5.2/composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
+# Copy the code into /var/www/html/ inside the image
+COPY . /var/www/html
+
 EXPOSE 80
