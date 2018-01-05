@@ -26,4 +26,7 @@ RUN chmod +x /usr/local/bin/composer
 # Copy the code into /var/www/html/ inside the image
 COPY . /var/www/html
 
+# Create tmp directory and make it writable by the web server
+RUN rm -rf app/tmp && mkdir app/tmp && chown -R www-data:www-data app/tmp
+
 EXPOSE 80
