@@ -1,0 +1,14 @@
+app:
+  image: onoya/dockerized-cakephp-app
+  autorestart: always
+  ports:
+    - 8000:80
+  links:
+    - db
+
+db:
+  image: mysql
+  autorestart: always
+  environment:
+    MYSQL_DATABASE: cakephp_db
+    MYSQL_ROOT_PASSWORD: root_password
